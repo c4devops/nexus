@@ -12,6 +12,10 @@ TLS/SSL works by using a combination of a public certificate (.crt) and a privat
 Now, we can create a self-signed key and certificate pair with OpenSSL in a single command by typing:
 
 ```
+mkdir /etc/ssl/certs
+
+mkdir /etc/ssl/private
+
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-signed.key -out /etc/ssl/certs/nginx-signed.crt
 
 ```
