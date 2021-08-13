@@ -37,7 +37,7 @@ docker pull sonatype/nexus3
 
 docker volume create local-nexus-data
 
-docker run -d -p 8081:8081 -p 4000:4000 --name nexus -v local-nexus-data:/nexus-data sonatype/nexus3
+docker run -d -p 8081:8081 -p 4000:4000 --name nexus --network nexus-network -v local-nexus-data:/nexus-data sonatype/nexus3
 
 ```
 5. Create an NGINX Proxy Container
@@ -114,6 +114,7 @@ user  nginx;
 
 ```
 docker run --name nginx-proxy \
+--network nexus-network \
 -v /root/nginx.conf:/etc/nginx/nginx.conf:ro \
 -v /etc/ssl/private/nginx-signed.key:/etc/nginx/ssl.key:ro \
 -v /etc/ssl/certs/nginx-signed.crt:/etc/nginx/ssl.crt:ro -p 443:443 -p 80:80  -d nginx
