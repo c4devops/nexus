@@ -37,7 +37,7 @@ docker run -d -p 8081:8081 --name nexus -v local-nexus-data:/nexus-data sonatype
 
 6.	Clone the sample java project
 
-    * git clone https://github.com/submah/maven-helloworld.git
+    * git clone https://github.com/c4devops/maven-helloworld.git
 
 Note: Delete the existing pom.xml file and create a new pom.xml file with below contents
 
